@@ -1,0 +1,19 @@
+id: SYS-002
+name: Customer support ticket triage
+owner: Support Operations Lead
+status: live
+purpose: >
+  Assigns an inbound support ticket to a queue and suggests a priority label.
+  No customer-facing output; agents see the label and can change it.
+our_role: deployer
+annex_iii: null
+profiling: false
+personal_data: true
+special_category: false
+interacts_with_humans: false
+gpai_model: claude-family
+supplier: Internal
+vendor_ref: null
+retention_ref: [RET-CS-01]
+iso_42001_controls: [A.6.2.2]
+last_reviewed: "2026-07-15"

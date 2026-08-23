@@ -1,0 +1,47 @@
+name: register
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # Weekly drift check: catches review dates going stale with no code change.
+    - cron: "0 7 * * MON"
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Validate, classify, render
+        run: python src/build.py
+
+      - name: Commit regenerated register
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "register-bot"
+          git config user.email "register-bot@users.noreply.github.com"
+          git add docs/
+          git diff --staged --quiet || git commit -m "chore: regenerate register [skip ci]"
+          git push
+
+      - name: Raise an issue when the scheduled run fails
+        if: failure() && github.event_name == 'schedule'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Register drift detected ${new Date().toISOString().slice(0,10)}`,
+              body: 'The weekly register check failed. See the run log for the failing entries.',
+              labels: ['governance', 'review-overdue']
+            })

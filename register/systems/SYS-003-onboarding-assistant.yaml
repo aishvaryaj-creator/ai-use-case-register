@@ -1,0 +1,22 @@
+id: SYS-003
+name: Client-facing onboarding assistant
+owner: Product Manager, Onboarding
+status: pilot
+purpose: >
+  Chat assistant embedded in the client portal that answers configuration questions
+  and drafts written summaries of setup decisions for the client to keep.
+our_role: deployer
+placed_under_own_name: true
+substantially_modified: true
+annex_iii: null
+profiling: false
+personal_data: true
+special_category: false
+interacts_with_humans: true
+generates_synthetic_content: true
+gpai_model: vendor-hosted-llm-v3
+supplier: Northbridge AI
+vendor_ref: VEN-022
+retention_ref: [RET-CS-04]
+iso_42001_controls: [A.6.2.6, A.8.3]
+last_reviewed: "2026-08-10"

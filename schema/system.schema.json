@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AI use-case register entry",
+  "type": "object",
+  "required": [
+    "id", "name", "owner", "status", "purpose",
+    "our_role", "annex_iii", "profiling", "personal_data", "supplier"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^SYS-[0-9]{3}$" },
+    "name": { "type": "string", "minLength": 3 },
+    "owner": { "type": "string", "minLength": 3 },
+    "status": { "enum": ["proposed", "pilot", "live", "retired"] },
+    "purpose": { "type": "string", "minLength": 20 },
+    "intended_purpose_changed": { "type": "boolean", "default": false },
+    "substantially_modified": { "type": "boolean", "default": false },
+    "placed_under_own_name": { "type": "boolean", "default": false },
+    "our_role": { "enum": ["provider", "deployer", "importer", "distributor"] },
+    "prohibited_practice": {
+      "type": ["string", "null"],
+      "description": "Art. 5 point engaged, e.g. '5(1)(f)'. Null if none.",
+      "default": null
+    },
+    "annex_iii": {
+      "type": ["string", "null"],
+      "description": "Annex III point, e.g. '4(a)'. Null if not enumerated.",
+      "default": null
+    },
+    "art_6_3_filter": {
+      "type": ["string", "null"],
+      "enum": ["narrow_procedural", "improve_prior_human_activity", "preparatory", "detect_deviation_no_replace", null],
+      "description": "Claimed Art. 6(3) derogation ground. Null if none claimed.",
+      "default": null
+    },
+    "art_6_3_justification": { "type": ["string", "null"], "default": null },
+    "profiling": { "type": "boolean" },
+    "interacts_with_humans": { "type": "boolean", "default": false },
+    "generates_synthetic_content": { "type": "boolean", "default": false },
+    "emotion_recognition": { "type": "boolean", "default": false },
+    "personal_data": { "type": "boolean" },
+    "special_category": { "type": "boolean", "default": false },
+    "gpai_model": { "type": ["string", "null"], "default": null },
+    "supplier": { "type": "string" },
+    "vendor_ref": { "type": ["string", "null"], "default": null },
+    "retention_ref": { "type": "array", "items": { "type": "string" }, "default": [] },
+    "iso_42001_controls": { "type": "array", "items": { "type": "string" }, "default": [] },
+    "dpia_required": { "type": ["boolean", "null"], "default": null },
+    "last_reviewed": { "type": "string", "format": "date" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "art_6_3_filter": { "type": "string" } }, "required": ["art_6_3_filter"] },
+      "then": {
+        "required": ["art_6_3_justification"],
+        "properties": { "art_6_3_justification": { "type": "string", "minLength": 40 } }
+      }
+    }
+  ]
+}

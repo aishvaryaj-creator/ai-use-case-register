@@ -1,0 +1,26 @@
+id: SYS-001
+name: CV screening and candidate ranking
+owner: Head of Talent
+status: live
+purpose: >
+  Ranks inbound job applications against a role profile and surfaces a shortlist
+  to recruiters. Recruiters can override the ranking but it sets the review order.
+our_role: deployer
+placed_under_own_name: false
+substantially_modified: false
+intended_purpose_changed: false
+annex_iii: "4(a)"
+art_6_3_filter: improve_prior_human_activity
+art_6_3_justification: >
+  Argued internally that the tool only reorders a list a recruiter would read anyway,
+  and that a human makes every rejection decision. See decisions/0001.
+profiling: true
+personal_data: true
+special_category: false
+interacts_with_humans: false
+gpai_model: null
+supplier: Talentflow BV
+vendor_ref: VEN-014
+retention_ref: [RET-HR-03]
+iso_42001_controls: [A.5.2, A.6.2.4, A.9.3]
+last_reviewed: "2026-08-01"
