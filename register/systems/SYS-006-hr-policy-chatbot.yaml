@@ -1,0 +1,18 @@
+id: SYS-006
+name: Internal HR policy assistant
+owner: HR Operations Manager
+status: live
+purpose: Answers employee questions about leave, expenses and internal policy by retrieving from published HR documents. Employees access it in the intranet chat panel. No branding indicates it is automated.
+our_role: deployer
+annex_iii: null
+profiling: false
+personal_data: true
+special_category: false
+interacts_with_humans: true
+generates_synthetic_content: false
+gpai_model: vendor-hosted-llm-v3
+supplier: Northbridge AI
+vendor_ref: VEN-022
+retention_ref: [RET-HR-11]
+iso_42001_controls: [A.6.2.2, A.8.3]
+last_reviewed: "2026-08-23"
