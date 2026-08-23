@@ -75,5 +75,17 @@
       "built on GPAI model 'vendor-speech-and-summary-v2' \u2014 confirm upstream provider's Chapter V documentation is on file",
       "DPIA likely required (GDPR Art. 35) \u2014 link the assessment reference"
     ]
+  },
+  {
+    "system_id": "SYS-005",
+    "tier": "not-high-risk",
+    "effective_role": "deployer",
+    "deadline": null,
+    "rationale": [
+      "Role recorded as deployer; no Art. 25(1) trigger present.",
+      "Not enumerated in Annex III and not an Annex I safety component; Chapter III obligations do not apply."
+    ],
+    "obligations": [],
+    "flags": []
   }
 ]

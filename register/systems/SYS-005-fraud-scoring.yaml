@@ -1,0 +1,18 @@
+id: SYS-005
+name: Payment fraud scoring
+owner: Head of Risk Operations
+status: live
+purpose: Scores inbound customer payments for fraud risk. Scores above threshold hold the payment for manual review; sustained high scores automatically suspend the customer's account until an analyst clears it.
+our_role: deployer
+annex_iii: null
+profiling: true
+personal_data: true
+special_category: false
+interacts_with_humans: false
+generates_synthetic_content: false
+gpai_model: null
+supplier: Sentinel Risk Systems
+vendor_ref: VEN-044
+retention_ref: [RET-FIN-02]
+iso_42001_controls: [A.6.2.4, A.9.3]
+last_reviewed: "2026-08-23"
