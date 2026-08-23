@@ -1,0 +1,25 @@
+id: SYS-004
+name: Meeting recording, transcription and summarisation
+owner: Chief of Staff
+status: pilot
+purpose: >
+  Joins internal video calls, records and transcribes them, and produces a written
+  summary with action items. Managers have begun pasting these summaries into
+  performance review notes as evidence of contribution.
+our_role: deployer
+annex_iii: "4(b)"
+art_6_3_filter: preparatory
+art_6_3_justification: >
+  Argued by the pilot sponsor that the tool only prepares a record of what was said
+  and performs no assessment of any employee; the manager does all evaluation.
+profiling: true
+personal_data: true
+special_category: false
+interacts_with_humans: false
+generates_synthetic_content: true
+gpai_model: vendor-speech-and-summary-v2
+supplier: Clearnote Ltd
+vendor_ref: VEN-031
+retention_ref: [RET-HR-07]
+iso_42001_controls: [A.6.2.4, A.8.3]
+last_reviewed: "2026-08-23"
